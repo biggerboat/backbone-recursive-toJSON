@@ -1,6 +1,6 @@
 {
 	"name": "backbone-recursive-tojson",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"description": "",
 	"keywords": ["backbone-recursive-toJSON"],
 	"homepage": "https://github.com/biggerboat/backbone-recursive-toJSON",
