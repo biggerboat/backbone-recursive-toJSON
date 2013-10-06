@@ -17,6 +17,7 @@
 	"main": "backbone-recursive-tojson.js",
 	"dependencies": {
 		"jquery": "*",
+		"underscore":"*",
 		"backbone":"*"
 	}
 }
