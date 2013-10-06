@@ -6,7 +6,6 @@ _.extend (Backbone.Model.prototype, {
 	_superToJSON: null,
 
 	toJSON: function() {
-		console.log('Model -> toJSON');
 		var JSON = this._superToJSON(),
 			array;
 
