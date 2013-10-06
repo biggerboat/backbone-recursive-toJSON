@@ -1,0 +1,1 @@
+# backbone-recursive-toJSON [![Build Status](https://travis-ci.org/biggerboat/backbone-recursive-toJSON.png)](https://travis-ci.org/biggerboat/backbone-recursive-toJSON)

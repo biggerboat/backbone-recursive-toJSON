@@ -1,0 +1,22 @@
+{
+	"name": "backbone-recursive-tojson",
+	"version": "0.1.0",
+	"description": "",
+	"keywords": ["backbone-recursive-toJSON"],
+	"homepage": "https://github.com/biggerboat/backbone-recursive-toJSON",
+
+	"authors": [
+		"Paul Tondeur"
+	],
+
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/biggerboat/backbone-recursive-toJSON.git"
+	},
+
+	"main": "backbone-recursive-tojson.js",
+	"dependencies": {
+		"jquery": "*",
+		"backbone":"*"
+	}
+}

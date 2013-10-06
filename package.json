@@ -1,0 +1,27 @@
+{
+  "name": "backbone-recursive-tojson",
+  "version": "0.1.0",
+  "author": {
+    "name": "Paul Tondeur",
+    "email": "paul@paultondeur.nl",
+    "url": "http://paultondeur.com"
+  },
+  "description": "Small Backbone extension for recursively calling toJSON on models and collections",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/biggerboat/backbone-recursive-toJSON"
+  },
+  "dependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-uglify": "~0.1.2",
+    "grunt-contrib-watch": "~0.3.1",
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-bump": "~0.0.11"
+  },
+  "engines": {
+    "node": "0.8.x"
+  },
+  "devDependencies": {
+    "grunt-contrib-concat": "~0.3.0"
+  }
+}
