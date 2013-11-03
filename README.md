@@ -21,3 +21,5 @@ Be aware for circular relationships, is this will get you in a recursive loop. S
 ```modelB``` and ```modelB``` having a reference back to ```modelA```.
 
 Please see the specs for full details.
+
+For example usage of this library, please refer to [Navigator-Injector-Backbone-Command-TodoMVC example](https://github.com/BiggerBoat/nibc-todomvc).
