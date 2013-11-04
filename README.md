@@ -20,6 +20,4 @@ console.log(modelAData.otherModel.name);
 Be aware for circular relationships, is this will get you in a recursive loop. So for example ```modelA``` having a reference to
 ```modelB``` and ```modelB``` having a reference back to ```modelA```.
 
-Please see the specs for full details.
-
-For example usage of this library, please refer to [Navigator-Injector-Backbone-Command-TodoMVC example](https://github.com/BiggerBoat/nibc-todomvc).
+Please see the specs for full details or consult [Navigator-Injector-Backbone-Command-TodoMVC example](https://github.com/BiggerBoat/nibc-todomvc) as an example on how this project could be used.
