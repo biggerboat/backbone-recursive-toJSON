@@ -21,3 +21,6 @@ Be aware for circular relationships, is this will get you in a recursive loop. S
 ```modelB``` and ```modelB``` having a reference back to ```modelA```.
 
 Please see the specs for full details or consult [Navigator-Injector-Backbone-Command-TodoMVC example](https://github.com/BiggerBoat/nibc-todomvc) as an example on how this project could be used.
+
+## Backbone.Relational
+Make sure to check out [Backbone.Relational](https://github.com/PaulUithol/Backbone-relational) too. For me it turned out this was exactly what I was looking for.
