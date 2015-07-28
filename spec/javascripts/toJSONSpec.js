@@ -43,7 +43,7 @@ describe("toJSON", function() {
 		modelA.set({other:[modelB]});
 		modelB.set({other:[modelA]});
 
-		expect(function() {var jsonData = modelA.toJSON()}).toThrow();
+		expect(function() {var jsonData = modelA.toJSON();}).toThrow();
 
 //		expect(jsonData.name).toEqual('modelA');
 //		expect(jsonData.other.name).toEqual('modelB');
