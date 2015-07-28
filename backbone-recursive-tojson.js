@@ -1,35 +1,60 @@
 //A little recursive helper. It is known for not being bugfree when there are recursive relations
+(function(root, factory) {
 
-//Recursive toJSON() call on models and its submodels
-var superToJSON = Backbone.Model.prototype.toJSON;
-_.extend (Backbone.Model.prototype, {
-	_superToJSON: null,
+    // Set up Backbone appropriately for the environment. Start with AMD.
+    if (typeof define === 'function' && define.amd) {
+        define(['underscore', 'backbone'], function(_, Backbone) {
+        // Export global even in AMD case in case this script is loaded with
+        // others that may still expect a global Backbone.
+        factory( _, Backbone);
+    });
 
-	toJSON: function() {
-		var JSON = this._superToJSON(),
-			array;
+    // Next for Node.js or CommonJS.
+    } else if (typeof exports !== 'undefined' && typeof require === 'function') {
+        var _ = require('underscore'),
+        Backbone = require('backbone');
+        factory(_, Backbone);
 
-		for (var property in JSON) {
-			//Make sure there is a toJSON method to call
-			if (!_.isEmpty(JSON[property])) {
-				if (typeof JSON[property]["toJSON"] === 'function') {
-					JSON[property] = JSON[property].toJSON();
-				} else if(_.isArray(JSON[property])) {
-					array = [];
-					//Also call toJSON methods on an array of models
-					for (var i = 0; i<JSON[property].length; i++) {
-						if(!_.isEmpty(JSON[property][i]) && typeof JSON[property][i]["toJSON"]==='function') {
-							array.push(JSON[property][i].toJSON());
-						} else {
-							array.push(JSON[property][i]);
-						}
-					}
-					JSON[property] = array;
-				}
-			}
-		}
+    // Finally, as a browser global.
+    } else {
+        factory(root._, root.Backbone);
+    }
+}(this, function factory(_, Backbone) {
 
-		return JSON;
-	}
-});
-Backbone.Model.prototype._superToJSON = superToJSON;
+    //Recursive toJSON() call on models and its submodels
+    var superToJSON = Backbone.Model.prototype.toJSON;
+    _.extend (Backbone.Model.prototype, {
+        _superToJSON: null,
+
+        toJSON: function() {
+            var json = this._superToJSON(),
+                array;
+
+            for (var property in json) {
+                if(!json.hasOwnProperty(property)) {
+                    continue;
+                }
+                //Make sure there is a toJSON method to call
+                if (!_.isEmpty(json[property])) {
+                    if (typeof json[property].toJSON === 'function') {
+                        json[property] = json[property].toJSON();
+                    } else if(_.isArray(json[property])) {
+                        array = [];
+                        //Also call toJSON methods on an array of models
+                        for (var i = 0; i<json[property].length; i++) {
+                            if(!_.isEmpty(json[property][i]) && typeof json[property][i].toJSON==='function') {
+                                array.push(json[property][i].toJSON());
+                            } else {
+                                array.push(json[property][i]);
+                            }
+                        }
+                        json[property] = array;
+                    }
+                }
+            }
+
+            return json;
+        }
+    });
+    Backbone.Model.prototype._superToJSON = superToJSON;
+}));
